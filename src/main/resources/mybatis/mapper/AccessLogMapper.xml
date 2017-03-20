@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jungang.mapper.AccessLogMapper">
+
+	<resultMap type="AccessLog" id="RM_selectWithAll">
+		<result property="ip"			column="IP"/>
+		<result property="path"			column="PATH"/>
+		<result property="params"		column="PARAMS" />
+		<result property="userAgent"	column="USER_AGENT" />
+		<result property="referer"		column="REFERER" />
+ 		<result property="accessTime"	column="ACCESS_TIME"/> 
+	</resultMap>
+	
+	<select id="selectWithAll"  resultMap="RM_selectWithAll">
+		SELECT  IP,
+				PATH,
+				PARAMS,
+				USER_AGENT,
+				REFERER,
+				ACCESS_TIME
+		  FROM	ACCESS_LOG
+	</select>
+	
+	<insert id="insertLog" parameterType="AccessLog">
+		INSERT INTO ACCESS_LOG(IP, PATH, USER_AGENT, REFERER, ACCESS_TIME)
+		VALUES (#{ip}, #{path}, #{userAgent}, #{referer}, NOW())
+	</insert>
+
+</mapper>

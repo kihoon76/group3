@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Template -->
+	<definition name="layout.basic" template="/WEB-INF/tiles/layout/basic.jsp">
+		<put-attribute name="title" value="basic" cascade="true" />
+		<put-attribute name="head" value="/WEB-INF/tiles/template/head.jsp"></put-attribute>
+		<put-attribute name="topbar" value="/WEB-INF/tiles/template/topbar.jsp" />
+		<put-attribute name="body" value="" />
+		
+		<!-- The <put-list-attribute> element must be at the end of the definition -->
+		<put-list-attribute name="cssList" cascade="true">
+			<add-attribute value="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+		</put-list-attribute>
+		
+		<put-list-attribute name="jsList" cascade="true">
+			<add-attribute value="/webjars/jquery/1.11.1/jquery.min.js" />
+			<add-attribute value="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<!-- 메인화면 -->
+	<definition name="main" extends="layout.basic">
+		<put-attribute name="title" value="main" cascade="true" />
+		<put-attribute name="body" value="/WEB-INF/tiles/main.jsp" />
+	</definition>
+	
+	<!-- 로그인 화면 -->
+	<definition name="loginform" extends="layout.basic">
+		<put-attribute name="title" value="loginform" cascade="true"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/login/loginform.jsp" />
+	</definition>
+	
+	<!-- 등록화면 -->
+	<definition name="register" extends="layout.basic">
+		<put-attribute name="body" value="/WEB-INF/tiles/login/register.jsp"></put-attribute>
+	</definition>
+	
+	
+</tiles-definitions>

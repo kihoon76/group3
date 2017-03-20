@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- Result Maps collection already contains value ~ -->
+	<!-- Solution : delete in mybatis-config.xml <mapper> Label all content
+		 Because if user-mapper.xml and namespace interfaces on the same path, you do not need to be configured in mybatis-config.xml
+	-->
+<!-- 	<mappers> -->
+<!-- 		<mapper resource="mybatis/mapper/AccessLogMapper.xml"/> -->
+<!-- 	</mappers> -->
+	<typeHandlers>
+		<typeHandler javaType="java.sql.Timestamp" handler="org.apache.ibatis.type.DateTypeHandler"/>
+		<typeHandler javaType="java.sql.Time" handler="org.apache.ibatis.type.DateTypeHandler"/>
+		<typeHandler javaType="java.util.Date" handler="org.apache.ibatis.type.DateTypeHandler"/>
+	</typeHandlers>
+</configuration>

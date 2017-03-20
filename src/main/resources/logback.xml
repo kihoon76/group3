@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<!-- Spring Boot에서는 class path 에 logback.xml 이나 logback-spring.xml 파일을 만들어 
+	     logback설정을 하면 처음 로딩 될 때 해당파일을 읽어 로그 설정을 하게 된다. -->
+	     
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>portfolio.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>portfolio.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- keep 30 day's worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss:.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="com.jungang" level="DEBUG" />
+	<logger name="org.springframework" level="INFO" />
+	
+	<!-- turn OFF all logging (children can override) -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+
+</configuration>
