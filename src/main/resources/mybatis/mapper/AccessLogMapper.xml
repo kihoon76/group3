@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jungang.mapper.AccessLogMapper">
+<mapper namespace="com.jungang.mapper.UserMapper">
 
-	<resultMap type="AccessLog" id="RM_selectWithAll">
+	<!-- <resultMap type="AccessLog" id="RM_selectWithAll">
 		<result property="ip"			column="IP"/>
 		<result property="path"			column="PATH"/>
 		<result property="params"		column="PARAMS" />
@@ -24,6 +24,6 @@
 	<insert id="insertLog" parameterType="AccessLog">
 		INSERT INTO ACCESS_LOG(IP, PATH, USER_AGENT, REFERER, ACCESS_TIME)
 		VALUES (#{ip}, #{path}, #{userAgent}, #{referer}, NOW())
-	</insert>
+	</insert>-->
 
 </mapper>
