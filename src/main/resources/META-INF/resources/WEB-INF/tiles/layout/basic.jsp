@@ -4,6 +4,7 @@
 <html>
 <tiles:insertAttribute name="head" />
 <body>
+<h1>프로젝트 테스트 화면입니다.</h1>
 	<tiles:insertAttribute name="topbar" />
 	<tiles:insertAttribute name="body" />
 </body>
